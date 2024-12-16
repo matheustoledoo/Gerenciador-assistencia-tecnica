@@ -1,0 +1,32 @@
+<h1 class="page-title">Meus Processos</h1>
+<div class="table-container">
+<table class="process-table">
+    <thead>
+        <tr>
+            <th>Número do Processo</th>
+            <th>Ação</th>
+            <th>Opções</th>
+        </tr>
+    </thead>
+    <tbody>
+       {{#each processes}}
+<tr>
+    <td>{{this.numeroProcesso}}</td>
+    <td>{{this.acao}}</td>
+    <td>
+        <a href="/process/edit/{{this.id}}" class="btn-link edit-link">Editar</a> 
+        <form action="/process/delete/{{this.id}}" method="POST"   class="delete-form"> 
+            <button type="submit" class="btn-link delete-link">Excluir</button>
+        </form>
+    </td>
+</tr>
+{{else}}
+<tr>
+    <td colspan="3" class="no-data">Nenhum processo encontrado.</td>
+</tr>
+{{/each}}
+
+
+    </tbody>
+</table>
+</div>

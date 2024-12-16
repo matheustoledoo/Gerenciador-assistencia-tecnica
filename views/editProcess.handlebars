@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Processo - Justice Process Manager</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <main>
+        <h1>Editar Processo</h1>
+        <form action="/process/edit/{{process.id}}" method="POST">
+            {{!-- Campos básicos --}}
+            <div class="form-group">
+                <label for="numeroProcesso">Número do Processo:</label>
+                <input type="text" id="numeroProcesso" name="numeroProcesso" value="{{process.numeroProcesso}}" >
+            </div>
+
+            <div class="form-group">
+                <label for="acao">Ação:</label>
+                <input type="text" id="acao" name="acao" value="{{process.acao}}" >
+            </div>
+
+            <div class="form-group">
+                <label for="forum">Fórum:</label>
+                <input type="text" id="forum" name="forum" value="{{process.forum}}" >
+            </div>
+
+            <div class="form-group">
+                <label for="vara">Vara:</label>
+                <input type="text" id="vara" name="vara" value="{{process.vara}}" >
+            </div>
+
+            <div class="form-group">
+                <label for="ripa">Ripa:</label>
+                <input type="text" id="ripa" name="ripa" value="{{process.ripa}}" >
+            </div>
+
+            {{!-- Dados adicionais --}}
+
+            <div class="form-group">
+                <label for="emailVara">Email da Vara:</label>
+                <input type="email" id="emailVara" name="emailVara" value="{{process.emailVara}}">
+            </div>
+
+            <div class="form-group">
+                <label for="telefoneVara">Telefone da Vara:</label>
+                <input type="text" id="telefoneVara" name="telefoneVara" value="{{process.telefoneVara}}">
+            </div>
+
+            <div class="form-group">
+                <label for="requerente">Requerente:</label>
+                <input type="text" id="requerente" name="requerente" value="{{process.requerente}}" >
+            </div>
+
+            <div class="form-group">
+                <label for="advogadoRequerente">Advogado do Requerente:</label>
+                <input type="text" id="advogadoRequerente" name="advogadoRequerente" value="{{process.advogadoRequerente}}">
+            </div>
+
+            <div class="form-group">
+                <label for="telefoneRequerente">Telefone do Requerente:</label>
+                <input type="text" id="telefoneRequerente" name="telefoneRequerente" value="{{process.telefoneRequerente}}">
+            </div>
+
+            <div class="form-group">
+                <label for="emailRequerente">Email do Requerente:</label>
+                <input type="email" id="emailRequerente" name="emailRequerente" value="{{process.emailRequerente}}">
+            </div>
+
+            <div class="form-group">
+                <label for="requerido">Requerido:</label>
+                <input type="text" id="requerido" name="requerido" value="{{process.requerido}}" >
+            </div>
+
+            <div class="form-group">
+                <label for="advogadoRequerido">Advogado do Requerido:</label>
+                <input type="text" id="advogadoRequerido" name="advogadoRequerido" value="{{process.advogadoRequerido}}">
+            </div>
+
+            <div class="form-group">
+                <label for="telefoneRequerido">Telefone do Requerido:</label>
+                <input type="text" id="telefoneRequerido" name="telefoneRequerido" value="{{process.telefoneRequerido}}">
+            </div>
+
+            <div class="form-group">
+                <label for="emailRequerido">Email do Requerido:</label>
+                <input type="email" id="emailRequerido" name="emailRequerido" value="{{process.emailRequerido}}">
+            </div>
+
+            <div class="form-group">
+                <label for="perito">Perito:</label>
+                <input type="text" id="perito" name="perito" value="{{process.perito}}">
+            </div>
+
+            <div class="form-group">
+                <label for="telefonePerito">Telefone do Perito:</label>
+                <input type="text" id="telefonePerito" name="telefonePerito" value="{{process.telefonePerito}}">
+            </div>
+
+            <div class="form-group">
+                <label for="emailPerito">Email do Perito:</label>
+                <input type="email" id="emailPerito" name="emailPerito" value="{{process.emailPerito}}">
+            </div>
+
+            <div class="form-group">
+                <label for="assistenteTecnico">Assistente Técnico:</label>
+                <input type="text" id="assistenteTecnico" name="assistenteTecnico" value="{{process.assistenteTecnico}}">
+            </div>
+
+            <div class="form-group">
+                <label for="telefoneAssistenteTecnico">Telefone do Assistente Técnico:</label>
+                <input type="text" id="telefoneAssistenteTecnico" name="telefoneAssistenteTecnico" value="{{process.telefoneAssistenteTecnico}}">
+            </div>
+
+            <div class="form-group">
+                <label for="emailAssistenteTecnico">Email do Assistente Técnico:</label>
+                <input type="email" id="emailAssistenteTecnico" name="emailAssistenteTecnico" value="{{process.emailAssistenteTecnico}}">
+            </div>
+
+            <div class="form-group">
+                <label for="nomeacao">Nomeação:</label>
+                <input type="text" id="nomeacao" name="nomeacao" value="{{process.nomeacao}}">
+            </div>
+
+           <label for="dataNomeacao">Data Nomeação:</label>
+<input type="date" id="dataNomeacao" name="dataNomeacao" value="{{formatDateForInput process.dataNomeacao}}">
+
+
+<label for="valortotal">Valor Total:</label>
+<input type="number" id="valortotal" name="valortotal" step="0.01" value="{{process.valortotal}}">
+
+<label for="medidoateomomento">Medido Até o Momento:</label>
+<input type="number" id="medidoateomomento" name="medidoateomomento" step="0.01" value="{{process.medidoateomomento}}">
+
+<label for="saldoamedir">Saldo a Medir:</label>
+<input type="number" id="saldoamedir" name="saldoamedir" step="0.01" value="{{process.saldoamedir}}">
+
+<label for="medicaoatual">Medição Atual:</label>
+<input type="number" id="medicaoatual" name="medicaoatual" step="0.01" value="{{process.medicaoatual}}">
+
+
+
+<label for="agendamentoVistoria">Agendamento:</label>
+<input type="text" id="agendamentoVistoria" name="agendamentoVistoria" value="{{process.agendamentoVistoria}}">
+
+<label for="dataVistoria">Data Vistoria:</label>
+<input type="date" id="dataVistoria" name="dataVistoria" value="{{formatDateForInput process.dataVistoria}}">
+
+<label for="laudoNaoIniciado">Laudo Não Iniciado:</label>
+<select id="laudoNaoIniciado" name="laudoNaoIniciado">
+    <option value="true" {{#if (eq process.laudoNaoIniciado true)}}selected{{/if}}>Sim</option>
+    <option value="false" {{#if (eq process.laudoNaoIniciado false)}}selected{{/if}}>Não</option>
+</select>
+
+<label for="motivoNaoIniciado">Motivo:</label>
+<input type="text" id="motivoNaoIniciado" name="motivoNaoIniciado" value="{{process.motivoNaoIniciado}}">
+
+<label for="dataNaoIniciado">Data Não Iniciado:</label>
+<input type="date" id="dataNaoIniciado" name="dataNaoIniciado" value="{{formatDateForInput process.dataNaoIniciado}}">
+
+
+<label for="laudoIniciado">Laudo Iniciado:</label>
+<select id="laudoIniciado" name="laudoIniciado">
+    <option value="true" {{#if (eq process.laudoIniciado true)}}selected{{/if}}>Sim</option>
+    <option value="false" {{#if (eq process.laudoIniciado false)}}selected{{/if}}>Não</option>
+</select>
+
+<label for="conclusaoLaudo">Conclusão:</label>
+<input type="text" id="conclusaoLaudo" name="conclusaoLaudo" value="{{process.conclusaoLaudo}}">
+
+<label for="dataConclusao">Data Conclusão:</label>
+<input type="date" id="dataConclusao" name="dataConclusao" value="{{formatDateForInput process.dataConclusao}}">
+
+
+<label for="laudoParalisado">Laudo Paralisado:</label>
+<select id="laudoParalisado" name="laudoParalisado">
+    <option value="true" {{#if (eq process.laudoParalisado true)}}selected{{/if}}>Sim</option>
+    <option value="false" {{#if (eq process.laudoParalisado false)}}selected{{/if}}>Não</option>
+</select>
+
+<label for="motivoParalisado">Motivo Paralisado:</label>
+<input type="text" id="motivoParalisado" name="motivoParalisado" value="{{process.motivoParalisado}}">
+
+<label for="dataParalisado">Data Paralisado:</label>
+<input type="date" id="dataParalisado" name="dataParalisado" value="{{formatDateForInput process.dataParalisado}}">
+
+
+
+<label for="esclarecimentosNaoIniciado">Esclarecimentos Não Iniciado:</label>
+<select id="esclarecimentosNaoIniciado" name="esclarecimentosNaoIniciado">
+    <option value="true" {{#if (eq process.esclarecimentosNaoIniciado true)}}selected{{/if}}>Sim</option>
+    <option value="false" {{#if (eq process.esclarecimentosNaoIniciado false)}}selected{{/if}}>Não</option>
+</select>
+
+<label for="motivoNaoIniciadoEsclarecimentos">Motivo:</label>
+<input type="text" id="motivoNaoIniciadoEsclarecimentos" name="motivoNaoIniciadoEsclarecimentos" value="{{process.motivoNaoIniciadoEsclarecimentos}}">
+
+<label for="dataNaoIniciadoEsclarecimentos">Data Não Iniciado Esclarecimentos:</label>
+<input type="date" id="dataNaoIniciadoEsclarecimentos" name="dataNaoIniciadoEsclarecimentos" value="{{formatDateForInput process.dataNaoIniciadoEsclarecimentos}}">
+
+
+
+<label for="esclarecimentosIniciado">Esclarecimentos Iniciado:</label>
+<select id="esclarecimentosIniciado" name="esclarecimentosIniciado">
+    <option value="true" {{#if (eq process.esclarecimentosIniciado true)}}selected{{/if}}>Sim</option>
+    <option value="false" {{#if (eq process.esclarecimentosIniciado false)}}selected{{/if}}>Não</option>
+</select>
+
+<label for="conclusaoEsclarecimentos">Conclusão dos Esclarecimentos:</label>
+<input type="text" id="conclusaoEsclarecimentos" name="conclusaoEsclarecimentos" value="{{process.conclusaoEsclarecimentos}}">
+
+<label for="dataConclusaoEsclarecimentos">Data Conclusão Esclarecimentos:</label>
+<input type="date" id="dataConclusaoEsclarecimentos" name="dataConclusaoEsclarecimentos" value="{{formatDateForInput process.dataConclusaoEsclarecimentos}}">
+
+
+<label for="esclarecimentosParalisado">Esclarecimentos Paralisado:</label>
+<select id="esclarecimentosParalisado" name="esclarecimentosParalisado">
+    <option value="true" {{#if (eq process.esclarecimentosParalisado true)}}selected{{/if}}>Sim</option>
+    <option value="false" {{#if (eq process.esclarecimentosParalisado false)}}selected{{/if}}>Não</option>
+</select>
+
+<label for="motivoParalisadoEsclarecimentos">Motivo Paralisado:</label>
+<input type="text" id="motivoParalisadoEsclarecimentos" name="motivoParalisadoEsclarecimentos" value="{{process.motivoParalisadoEsclarecimentos}}">
+
+<label for="dataParalisadoEsclarecimentos">Data Paralisado Esclarecimentos:</label>
+<input type="date" id="dataParalisadoEsclarecimentos" name="dataParalisadoEsclarecimentos" value="{{formatDateForInput process.dataParalisadoEsclarecimentos}}">
+</div>
+
+
+
+            <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+            <a href="/process/{{process.id}}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </main>
+
+    <style>
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #ff7a0c;
+            color: #fff;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: #fff;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+ 

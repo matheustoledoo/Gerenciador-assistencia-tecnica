@@ -1,0 +1,88 @@
+<!-- views/home.handlebars -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>{{title}}</h1>
+  </header>
+  <main>
+      <form action="/process/search" method="GET" class="search-form">
+        <input
+            type="text"
+            name="query"
+            placeholder="Procure pelo número do processo, ação ou fórum"
+            class="search-input"
+            required
+        />
+        <button type="submit" class="search-button">Pesquisar</button>
+    </form>
+
+    <div class="process-container">
+      {{#if processes.length}}
+        {{#each processes}}
+          <div class="process-card">
+            <h2>Número do Processo: {{this.numeroProcesso}}</h2>
+            <p><strong>Ação:</strong> {{this.acao}}</p>
+            <p><strong>Fórum:</strong> {{this.forum}}</p>
+            <p><strong>Vara:</strong> {{this.vara}}</p>
+            <a href="/process/{{this.id}}" class="details-button">Mostrar Detalhes</a>
+          </div>
+        {{/each}}
+      {{else}}
+        <p>Nenhum processo cadastrado.</p>
+      {{/if}}
+    </div>
+
+
+  </main>
+
+
+  <style>
+    .process-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin: 20px 0;
+    }
+
+    .process-card {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .process-card h2 {
+      margin-bottom: 10px;
+      font-size: 18px;
+      color: ##ff7a0c;
+    }
+
+    .process-card p {
+      margin: 5px 0;
+      color: #555;
+    }
+
+    .details-button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background-color: #333;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .details-button:hover {
+      background-color: #555;
+    }
+  </style>
+</body>
+</html>

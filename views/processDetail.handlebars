@@ -1,0 +1,216 @@
+<!-- views/processDetail.handlebars -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Processo - Justice Process Manager</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+
+    <main class="details-container">
+        <h1 class="details-title">Detalhes do Processo</h1>
+        <table  class="details-table">
+            <tbody>
+                <tr>
+                    <th>Número do Processo:</th>
+                    <td>{{process.numeroProcesso}}</td>
+                </tr>
+                <tr>
+                    <th>Ação:</th>
+                    <td>{{process.acao}}</td>
+                </tr>
+                <tr>
+                    <th>Fórum:</th>
+                    <td>{{process.forum}}</td>
+                </tr>
+                <tr>
+                    <th>Vara:</th>
+                    <td>{{process.vara}}</td>
+                </tr>
+                <tr>
+                    <th>Ripa:</th>
+                    <td>{{process.ripa}}</td>
+                </tr>
+                <tr>
+                    <th>Email da Vara:</th>
+                    <td>{{process.emailVara}}</td>
+                </tr>
+                <tr>
+                    <th>Telefone da Vara:</th>
+                    <td>{{process.telefoneVara}}</td>
+                </tr>
+                <tr>
+                    <th>Requerente:</th>
+                    <td>{{process.requerente}}</td>
+                </tr>
+                <tr>
+                    <th>Advogado do Requerente/Escritório:</th>
+                    <td>{{process.advogadoRequerente}}</td>
+                </tr>
+                <tr>
+                    <th>Telefone do Requerente:</th>
+                    <td>{{process.telefoneRequerente}}</td>
+                </tr>
+                <tr>
+                    <th>E-mail do Requerente:</th>
+                    <td>{{process.emailRequerente}}</td>
+                </tr>
+                <tr>
+                    <th>Requerido:</th>
+                    <td>{{process.requerido}}</td>
+                </tr>
+                <tr>
+                    <th>Advogado do Requerido/Escritório:</th>
+                    <td>{{process.advogadoRequerido}}</td>
+                </tr>
+                <tr>
+                    <th>Telefone do Requerido:</th>
+                    <td>{{process.telefoneRequerido}}</td>
+                </tr>
+                <tr>
+                    <th>E-mail do Requerido:</th>
+                    <td>{{process.emailRequerido}}</td>
+                </tr>
+                <tr>
+                    <th>Perito:</th>
+                    <td>{{process.perito}}</td>
+                </tr>
+                <tr>
+                    <th>Telefone do Perito:</th>
+                    <td>{{process.telefonePerito}}</td>
+                </tr>
+                <tr>
+                    <th>E-mail do Perito:</th>
+                    <td>{{process.emailPerito}}</td>
+                </tr>
+                <tr>
+                    <th>Assistente Técnico:</th>
+                    <td>{{process.assistenteTecnico}}</td>
+                </tr>
+                <tr>
+                    <th>Telefone do Assistente Técnico:</th>
+                    <td>{{process.telefoneAssistenteTecnico}}</td>
+                </tr>
+                <tr>
+                    <th>E-mail do Assistente Técnico:</th>
+                    <td>{{process.emailAssistenteTecnico}}</td>
+                </tr>
+                <tr>
+                    <th>Nomeação:</th>
+                    <td>{{process.nomeacao}}</td>
+                </tr>
+                <tr>
+                    <th>Data Nomeação:</th>
+                    <td>{{process.dataNomeacao}}</td>
+                </tr>
+               
+
+
+                <tr>
+                    <th>Valor Total:</th>
+                    <td>{{process.valortotal}}</td>
+                </tr>
+                <tr>
+                    <th>Medido Até o Momento:</th>
+                    <td>{{process.medidoateomomento}}</td>
+                </tr>
+                <tr>
+                    <th>Saldo a Medir:</th>
+                    <td>{{process.saldoamedir}}</td>
+                </tr>
+                <tr>
+                    <th>Medição Atual:</th>
+                    <td>{{process.medicaoatual}}</td>
+                </tr>
+                
+
+
+
+                <tr>
+                    <th>Vistoria Agendamento:</th>
+                    <td>{{process.agendamentoVistoria}}</td>
+                </tr>
+                <tr>
+                    <th>Data Vistoria:</th>
+                    <td>{{process.dataVistoria}}</td>
+                </tr>
+                <tr>
+                    <th>Laudo Não Iniciado:</th>
+                    <td>{{#if process.laudoNaoIniciado}}Sim{{else}}Não{{/if}}</td>
+                </tr>
+                <tr>
+                    <th>Motivo Não Iniciado:</th>
+                    <td>{{process.motivoNaoIniciado}}</td>
+                </tr>
+                <tr>
+                    <th>Data Não Iniciado:</th>
+                    <td>{{process.dataNaoIniciado}}</td>
+                </tr>
+                    <th>Laudo Iniciado:</th>
+                    <td>{{#if process.laudoIniciado}}Sim{{else}}Não{{/if}}</td>
+                </tr>
+                <tr>
+                    <th>Conclusão Laudo:</th>
+                    <td>{{process.conclusaoLaudo}}</td>
+                </tr>
+                <tr>
+                    <th>Data Conclusão Laudo:</th>
+                    <td>{{process.dataConclusao}}</td>
+                </tr>
+                <tr>
+                    <th>Laudo Paralisado:</th>
+                    <td>{{#if process.laudoParalisado}}Sim{{else}}Não{{/if}}</td>
+                </tr>
+                <tr>
+                    <th>Motivo Laudo Paralisado:</th>
+                    <td>{{process.motivoParalisado}}</td>
+                </tr>
+                <tr>
+                    <th>Data Laudo Paralisado:</th>
+                    <td>{{process.dataParalisado}}</td>
+                </tr>
+                <tr>
+                    <th>Esclarecimentos Não Iniciado:</th>
+                    <td>{{#if process.esclarecimentosNaoIniciado}}Sim{{else}}Não{{/if}}</td>
+                </tr>
+                <tr>
+                    <th>Motivo Não Iniciado:</th>
+                    <td>{{process.motivoNaoIniciadoEsclarecimentos}}</td>
+                </tr>
+                <tr>
+                    <th>Data Não Iniciado:</th>
+                    <td>{{process.dataNaoIniciadoEsclarecimentos}}</td>
+                </tr>
+                <tr>
+                    <th>Esclarecimentos Iniciado:</th>
+                    <td>{{#if process.esclarecimentosIniciado}}Sim{{else}}Não{{/if}}</td>
+                </tr>
+                <tr>
+                    <th>Conclusão Esclarecimentos:</th>
+                    <td>{{process.conclusaoEsclarecimentos}}</td>
+                </tr>
+                <tr>
+                    <th>Data Conclusão Esclarecimentos:</th>
+                    <td>{{process.dataConclusaoEsclarecimentos}}</td>
+                </tr>
+                <tr>
+                    <th>Esclarecimentos Paralisado:</th>
+                    <td>{{#if process.esclarecimentosParalisado}}Sim{{else}}Não{{/if}}</td>
+                </tr>
+                <tr>
+                    <th>Motivo Esclarecimentos Paralisado:</th>
+                    <td>{{process.motivoParalisadoEsclarecimentos}}</td>
+                </tr>
+                <tr>
+                    <th>Data Esclarecimentos Paralisado:</th>
+                    <td>{{process.dataParalisadoEsclarecimentos}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+</body>
+</html>
