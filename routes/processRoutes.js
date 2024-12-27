@@ -27,14 +27,82 @@ router.get('/create', authenticateToken, (req, res) => {
 
 router.post('/create', authenticateToken, async (req, res) => {
   try {
-    const newProcess = await Process.create({
-      ...req.body,
-      userId: req.user.id, // Associate process with the logged-in user
-    });
-    res.redirect(`/`);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send('Internal Server Error');
+    // Função para tratar campos numéricos
+    const parseFloatOrNull = (value) => {
+      return value === '' || value === undefined || value === null ? null : parseFloat(value);
+    };
+
+    // Função para lidar com campos booleanos
+    const parseBooleanOrNull = (value) => {
+      return value === '' || value === undefined || value === null ? null : value === 'true';
+    };
+
+    // Função para lidar com datas
+    const parseDateOrNull = (value) => {
+      return value === '' || value === undefined || value === null ? null : new Date(value);
+    };
+
+    // Sanitização e conversão dos dados recebidos
+    const sanitizedData = {
+      numeroProcesso: req.body.numeroProcesso || null,
+      acao: req.body.acao || null,
+      forum: req.body.forum || null,
+      vara: req.body.vara || null,
+      ripa: req.body.ripa || null,
+      emailVara: req.body.emailVara || null,
+      telefoneVara: req.body.telefoneVara || null,
+      requerente: req.body.requerente || null,
+      advogadoRequerente: req.body.advogadoRequerente || null,
+      telefoneRequerente: req.body.telefoneRequerente || null,
+      emailRequerente: req.body.emailRequerente || null,
+      requerido: req.body.requerido || null,
+      advogadoRequerido: req.body.advogadoRequerido || null,
+      telefoneRequerido: req.body.telefoneRequerido || null,
+      emailRequerido: req.body.emailRequerido || null,
+      perito: req.body.perito || null,
+      telefonePerito: req.body.telefonePerito || null,
+      emailPerito: req.body.emailPerito || null,
+      assistenteTecnico: req.body.assistenteTecnico || null,
+      telefoneAssistenteTecnico: req.body.telefoneAssistenteTecnico || null,
+      emailAssistenteTecnico: req.body.emailAssistenteTecnico || null,
+      nomeacao: req.body.nomeacao || null,
+      dataNomeacao: parseDateOrNull(req.body.dataNomeacao),
+      fontePagadora: req.body.fontePagadora || null,
+      
+      valortotal: req.body.valortotal || null,
+      medidoateomomento: req.body.medidoateomomento || null,
+      saldoamedir: req.body.saldoamedir || null,
+      medicaoatual: req.body.medicaoatual || null,
+      
+      agendamentoVistoria: req.body.agendamentoVistoria || null,
+      dataVistoria: parseDateOrNull(req.body.dataVistoria),
+      laudoNaoIniciado: parseBooleanOrNull(req.body.laudoNaoIniciado),
+      motivoNaoIniciado: req.body.motivoNaoIniciado || null,
+      dataNaoIniciado: parseDateOrNull(req.body.dataNaoIniciado),
+      laudoIniciado: parseBooleanOrNull(req.body.laudoIniciado),
+      conclusaoLaudo: req.body.conclusaoLaudo || null,
+      dataConclusao: parseDateOrNull(req.body.dataConclusao),
+      laudoParalisado: parseBooleanOrNull(req.body.laudoParalisado),
+      motivoParalisado: req.body.motivoParalisado || null,
+      dataParalisado: parseDateOrNull(req.body.dataParalisado),
+      esclarecimentosNaoIniciado: parseBooleanOrNull(req.body.esclarecimentosNaoIniciado),
+      motivoNaoIniciadoEsclarecimentos: req.body.motivoNaoIniciadoEsclarecimentos || null,
+      dataNaoIniciadoEsclarecimentos: parseDateOrNull(req.body.dataNaoIniciadoEsclarecimentos),
+      esclarecimentosIniciado: parseBooleanOrNull(req.body.esclarecimentosIniciado),
+      conclusaoEsclarecimentos: req.body.conclusaoEsclarecimentos || null,
+      dataConclusaoEsclarecimentos: parseDateOrNull(req.body.dataConclusaoEsclarecimentos),
+      esclarecimentosParalisado: parseBooleanOrNull(req.body.esclarecimentosParalisado),
+      motivoParalisadoEsclarecimentos: req.body.motivoParalisadoEsclarecimentos || null,
+      dataParalisadoEsclarecimentos: parseDateOrNull(req.body.dataParalisadoEsclarecimentos),
+      userId: req.user.id,
+    };
+
+    // Criação do processo
+    await Process.create(sanitizedData);
+    res.redirect('/');
+  } catch (error) {
+    console.error('Erro ao criar o processo:', error);
+    res.status(500).send('Erro ao criar o processo.');
   }
 });
 
